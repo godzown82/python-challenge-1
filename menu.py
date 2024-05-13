@@ -52,7 +52,16 @@ menu = {
 
 # 1. Set up order list. Order list will store a list of dictionaries for
 # menu item name, item price, and quantity ordered
-
+Order = [
+    {"Item name": "string",
+     "Price": float,
+     "Quantity": int
+     },
+    {"Item name": "string",
+     "Price": float,
+     "Quantity": int
+     },  
+]
 
 # Launch the store and present a greeting to the customer
 print("Welcome to the variety food truck.")
@@ -117,17 +126,28 @@ while place_order:
                         "Price": value
                     }
                     i += 1
-            # 2. Ask customer to input menu item number
-
-
-            # 3. Check if the customer typed a number
-
-                # Convert the menu selection to an integer
-
-
-                # 4. Check if the menu selection is in the menu items
-
-                    # Store the item name as a variable
+                    
+        else:
+            # Tell the customer they didn't select a menu option
+            print(f"{menu_category} was not a menu option.")
+    else:
+        # Tell the customer they didn't select a number
+        print("You didn't select a number.")
+    # 2. Ask customer to input menu item number
+    menu_selection = input(f"Please type your {menu_category_name} Item #: ")
+    # 3. Check if the customer typed a number
+    if menu_selection.isdigit():
+              
+    # 4. Convert the menu selection to an integer and check if the menu selection is in the menu items
+        if int(menu_selection) in menu_items.keys():
+            print(f" menu_selection is: {menu_selection} and menu_items for the selection are: {menu_items[int(menu_selection)]}")
+        else:
+            print(f"{menu_selection} was not an item option.")
+    else:
+        print("You didn't select a number##.")
+                
+                
+    # Store the item name as a variable
 
 
                     # Ask the customer for the quantity of the menu item
@@ -143,14 +163,6 @@ while place_order:
 
 
                 # Tell the customer they didn't select a menu option
-
-        else:
-            # Tell the customer they didn't select a menu option
-            print(f"{menu_category} was not a menu option.")
-    else:
-        # Tell the customer they didn't select a number
-        print("You didn't select a number.")
-
     while True:
         # Ask the customer if they would like to order anything else
         keep_ordering = input("Would you like to keep ordering? (Y)es or (N)o ")
