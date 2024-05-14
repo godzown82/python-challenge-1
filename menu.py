@@ -163,14 +163,25 @@ while place_order:
 
 
                 # Tell the customer they didn't select a menu option
-    while True:
+    ask_to_order = True
+    while ask_to_order:
         # Ask the customer if they would like to order anything else
         keep_ordering = input("Would you like to keep ordering? (Y)es or (N)o ")
-
+        keep_ordering = keep_ordering.capitalize()
         # 5. Check the customer's input
-
-                # Keep ordering
-
+        if keep_ordering == "N": 
+            ask_to_order = False
+            place_order = False
+            print(f"you entered: {keep_ordering},ask_to_order: {ask_to_order},place_order: {place_order}")
+            break
+        elif keep_ordering == "Y":
+            ask_to_order = False
+            print(f"you entered: {keep_ordering},ask_to_order: {ask_to_order},place_order: {place_order}")
+            break
+        else:
+            print(f"Entered and invalid input")
+            # Keep ordering
+        
                 # Exit the keep ordering question loop
 
                 # Complete the order
