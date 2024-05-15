@@ -136,33 +136,41 @@ while place_order:
     # 2. Ask customer to input menu item number
     menu_selection = input(f"Please type your {menu_category_name} Item #: ")
     # 3. Check if the customer typed a number
-    if menu_selection.isdigit():
-              
+    if menu_selection.isdigit():        
     # 4. Convert the menu selection to an integer and check if the menu selection is in the menu items
-        if int(menu_selection) in menu_items.keys():
-            print(f" menu_selection is: {menu_selection} and menu_items for the selection are: {menu_items[int(menu_selection)]}")
+        menu_selection = int(menu_selection)
+        if menu_selection in menu_items.keys():
+            items_selected = menu_items[menu_selection]
+            print(f" menu_selection is: {menu_selection} and items selected are: {items_selected}\n")
         else:
             print(f"{menu_selection} was not an item option.")
     else:
-        print("You didn't select a number##.")
-                
-                
+        print("You didn't enter a number.")             
     # Store the item name as a variable
+    item_name = items_selected["Item name"]
+    item_price = float(items_selected["Price"])
+    
+    # Ask the customer for the quantity of the menu item
+    item_quantity = input(f'How many {item_name}s will you like to order? ')
+
+    # Check if the quantity is a number, default to 1 if not
+    if item_quantity.isdigit:
+        item_quantity = int(item_quantity)
+        
+        print(f'you want {item_quantity} {item_name}s and each cost {item_price} ')
+    else:
+        item_quantity = 1
+        
+        print(f'you want {item_quantity} {item_name} and each cost {item_price} ')
 
 
-                    # Ask the customer for the quantity of the menu item
+    # Add the item name, price, and quantity to the order list
 
 
-                    # Check if the quantity is a number, default to 1 if not
+    # Tell the customer that their input isn't valid
 
 
-                    # Add the item name, price, and quantity to the order list
-
-
-                    # Tell the customer that their input isn't valid
-
-
-                # Tell the customer they didn't select a menu option
+    # Tell the customer they didn't select a menu option
     ask_to_order = True
     while ask_to_order:
         # Ask the customer if they would like to order anything else
